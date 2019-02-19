@@ -1,4 +1,5 @@
-
+import 'package:flutter/material.dart';
 abstract class BasicPresenter {
-  void loadData() {}
+  Future loadData() async {}
+  void refreshData() {}
 }
