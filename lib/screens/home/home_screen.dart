@@ -17,7 +17,8 @@ class HomeScreenState extends State<HomeScreen> implements HomeView {
   }
 
   @override
-  void showSuguesstions(List<Word> words){
+  void showSuggestions(List<Word> words){
+    print('xxx ${words.length}');
     print('showSuguesstions ${words.length}');
   }
 
@@ -33,7 +34,7 @@ class HomeScreenState extends State<HomeScreen> implements HomeView {
     return new Scaffold(
       body: new Center(
         child: TextField(
-          onChanged: (text) => _presenter.getSuggesstion(text),
+          onChanged: (text) => _presenter.getSuggestions(text),
           onSubmitted: (text) => _presenter.doSearch(text),
           decoration: InputDecoration(
             border: InputBorder.none,

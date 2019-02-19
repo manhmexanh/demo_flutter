@@ -4,7 +4,7 @@ import 'package:alive/data_repository/dict_repository.dart';
 import 'package:alive/model/word.dart';
 
 abstract class HomeView {
-  void showSuguesstions(List<Word> words);
+  void showSuggestions(List<Word> words);
 }
 
 class HomePresenter extends BasicPresenter {
@@ -21,11 +21,10 @@ class HomePresenter extends BasicPresenter {
     assert(_view != null);
   }
 
-  void getSuggesstion(String text) {
-    _repository.fetchSuggessions(text).then((words) => _view.showSuguesstions(words));
+  void getSuggestions(String text) {
+    _repository.fetchSuggesions(text).then((words) => _view.showSuggestions(words));
   }
 
   void doSearch(String text) {
   }
-
 }

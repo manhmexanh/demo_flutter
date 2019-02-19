@@ -2,13 +2,13 @@ import 'package:alive/model/word.dart';
 import 'dart:math';
 
 abstract class DictRepository {
-  Future<List<Word>> fetchSuggessions(String text);
+  Future<List<Word>> fetchSuggesions(String text);
 }
 
 class DictRepositorySQLite implements DictRepository {
 
   @override
-   Future<List<Word>> fetchSuggessions(String text) async {
+   Future<List<Word>> fetchSuggesions(String text) async {
      return genRandomWords(text);
    }
 
