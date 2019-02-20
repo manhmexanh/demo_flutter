@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:alive/model/models.dart';
 
 abstract class HomeView {
-  Widget showSuguesstions(List<Word> words);
+  void showSuguesstions(List<SearchItem> words);
 }
 
 class HomePresenter extends BasicPresenter {
@@ -30,20 +30,31 @@ class HomePresenter extends BasicPresenter {
     });
   }
 
-  void getSuggesstion(String text) {
-    List<Word> searchResult = new List();
-    for (int i = 0; i < _list.length; i++) {
-      Word word = _list[i];
-      if (word.text.toLowerCase().contains(text.toLowerCase())) {
-        searchResult.add(word);
-      }
-    }
+  void fetchSuggesstions(String text) {
+    // TODO: get recent searches and all words related to input text
+    List<SearchItem> searchResult = new List();
+    // for (int i = 0; i < _list.length; i++) {
+    //   Word word = _list[i];
+    //   if (word.text.toLowerCase().contains(text.toLowerCase())) {
+    //     searchResult.add(word);
+    //   }
+    // }
     if (searchResult.length > 0) {
       _view.showSuguesstions(searchResult);
     }
     print("search result numbers " + searchResult.length.toString());
   }
+}
 
-  void doSearch(String text) {}
+enum SearchItemType {
+    RECENT_SEARCH, RELATED_SEARCH
+}
+
+class SearchItem {
+
+  String content;
+  int type;
+
+  SearchItem(this.content, this.type);
 }
 

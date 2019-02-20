@@ -27,14 +27,14 @@ class HomeScreenState extends State<HomeScreen> implements HomeView {
   }
 
   void callBackTextSearch(String text) {
-    _presenter.getSuggesstion(text);
+    _presenter.fetchSuggesstions(text);
   }
 
   @override
-  Widget showSuguesstions(List<Word> words) {
-    return new Row(
-      children: words.map((word) => new Text(word.text)).toList(),
-    );
+  void showSuguesstions(List<SearchItem> words) {
+    // return new Row(
+    //   children: words.map((word) => new Text(word.text)).toList(),
+    // );
   }
 
   @override
